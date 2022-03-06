@@ -10,6 +10,8 @@ import { TrainersModule } from './trainers/trainers.module';
 import { LocationsModule } from './locations/locations.module';
 import * as path from "path";
 import { Connection } from 'typeorm';
+import { BookingsModule } from './bookings/bookings.module';
+import { StudentsModule } from './students/students.module';
 
 const databasePath = path.resolve(__dirname, '../../database.sqlite3')
 Logger.log(`Loading database at: ${databasePath}`)
@@ -31,6 +33,8 @@ Logger.log(`Loading database at: ${databasePath}`)
     CoursesModule,
     TrainersModule,
     LocationsModule,
+    BookingsModule,
+    StudentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
