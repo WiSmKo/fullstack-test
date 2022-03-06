@@ -17,4 +17,5 @@ export class AppController {
   async loadData() {
     // TODO load data from JSON file to database
   }
+
 }
