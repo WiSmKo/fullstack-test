@@ -12,6 +12,8 @@ import * as path from "path";
 import { Connection } from 'typeorm';
 import { BookingsModule } from './bookings/bookings.module';
 import { StudentsModule } from './students/students.module';
+import { Booking } from './bookings/bookings.entity';
+import { Student } from './students/students.entity';
 
 const databasePath = path.resolve(__dirname, '../../database.sqlite3')
 Logger.log(`Loading database at: ${databasePath}`)
@@ -26,7 +28,9 @@ Logger.log(`Loading database at: ${databasePath}`)
       entities: [
        Course,
        Trainer,
-       Location
+       Location,
+       Booking,
+       Student
       ],
       synchronize: true,
     }),
