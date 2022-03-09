@@ -2,24 +2,30 @@ import { Course } from "src/courses/course.entity";
 import { Location } from "src/locations/locations.entity";
 import { Trainer } from "src/trainers/trainers.entity";
 import { Student } from "src/students/students.entity";
-import { Column, PrimaryGeneratedColumn, Entity } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Booking {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+    @PrimaryGeneratedColumn()
+    id: number;
 
     @Column()
-    course: Course;
+    courseId: string;
 
     @Column()
-    location: Location;
+    locationId: string;
 
     @Column()
-    trainer: Trainer;
+    trainerId: string;
 
     @Column()
-    students: Student;
+    studentIds: string;
+
+    @Column()
+    startDate: string;
+
+    @Column()
+    endDate: string;
 
     @Column()
     mandatory: boolean;

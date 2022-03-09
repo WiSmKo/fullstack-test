@@ -2,8 +2,8 @@ import { Column, PrimaryGeneratedColumn, Entity } from "typeorm";
 
 @Entity()
 export class Student {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+    @PrimaryGeneratedColumn()
+    id: number;
 
     @Column()
     email: string;
