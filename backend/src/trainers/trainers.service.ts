@@ -11,7 +11,16 @@ export class TrainersService {
         private trainersRepository: Repository<Trainer>
     ){}
 
-    async findBy(course:String): Promise<Trainer[]>{
+    async findOne(id: string): Promise<Trainer> {
+        return this.trainersRepository.findOne(id);
+    }
+
+    async findBy(course: string): Promise<Trainer[]>{
         return this.trainersRepository.find({ where: { competencies: Like(`%'${course}'%`) } });
+    }
+
+    async requiresWheelchairAccess(id: string): Promise<Boolean>{
+        const trainer: Trainer = await this.trainersRepository.findOne(id);
+        return Boolean(trainer.needWheelchair);
     }
 }

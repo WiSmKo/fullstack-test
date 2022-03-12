@@ -12,7 +12,7 @@ import * as path from "path";
 import { Connection } from 'typeorm';
 import { BookingsModule } from './bookings/bookings.module';
 import { StudentsModule } from './students/students.module';
-import { Booking } from './bookings/bookings.entity';
+import { Booking } from './bookings/entities/bookings.entity';
 import { Student } from './students/students.entity';
 
 const databasePath = path.resolve(__dirname, '../../database.sqlite3')

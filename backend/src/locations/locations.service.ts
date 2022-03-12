@@ -14,6 +14,10 @@ export class LocationsService {
         return this.locationsRepository.find();
     }
 
+    async findOne(id: string): Promise<Location> {
+        return this.locationsRepository.findOne(id);
+    }
+
     async findBy(city:string): Promise<Location[]> {
         return this.locationsRepository.find({ where: { city: city } })
     }

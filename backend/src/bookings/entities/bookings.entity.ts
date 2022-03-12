@@ -1,7 +1,3 @@
-import { Course } from "src/courses/course.entity";
-import { Location } from "src/locations/locations.entity";
-import { Trainer } from "src/trainers/trainers.entity";
-import { Student } from "src/students/students.entity";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
