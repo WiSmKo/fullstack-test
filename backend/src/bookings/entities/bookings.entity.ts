@@ -6,22 +6,22 @@ export class Booking {
     id: number;
 
     @Column()
-    courseId: string;
+    courseId: number;
 
     @Column()
-    locationId: string;
+    locationId: number;
 
     @Column()
-    trainerId: string;
+    trainerId: number;
 
     @Column()
     studentIds: string;
 
     @Column()
-    startDate: string;
+    startDate: Date;
 
     @Column()
-    endDate: string;
+    endDate: Date;
 
     @Column()
     mandatory: boolean;

@@ -14,7 +14,7 @@ export class CoursesController {
     }
 
     @Get(':id')
-    getCourse(@Param('id') id: string) {
+    getCourse(@Param('id') id: number) {
         console.log(id);
         return this.coursesService.findOne(id);
     }

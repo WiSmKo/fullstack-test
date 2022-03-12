@@ -14,7 +14,7 @@ export class LocationsService {
         return this.locationsRepository.find();
     }
 
-    async findOne(id: string): Promise<Location> {
+    async findOne(id: number): Promise<Location> {
         return this.locationsRepository.findOne(id);
     }
 

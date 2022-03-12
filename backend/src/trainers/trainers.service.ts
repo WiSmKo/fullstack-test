@@ -11,7 +11,7 @@ export class TrainersService {
         private trainersRepository: Repository<Trainer>
     ){}
 
-    async findOne(id: string): Promise<Trainer> {
+    async findOne(id: number): Promise<Trainer> {
         return this.trainersRepository.findOne(id);
     }
 

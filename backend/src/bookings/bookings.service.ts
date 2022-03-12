@@ -29,7 +29,7 @@ export class BookingsService {
         if(!(booking.startDate < booking.endDate)){
             return false;
         }
-        if (trainer.needWheelchair === 'True' && location.wheelchairAccessible === 'False'){
+        if (trainer.needWheelchair === "True" && location.wheelchairAccessible === "False"){
             return false
         }
         return true  

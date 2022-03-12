@@ -14,11 +14,11 @@ export class CoursesService {
         return this.courseRepository.find();
     }
 
-    findOne(id: string): Promise<Course> {
+    findOne(id: number): Promise<Course> {
         return this.courseRepository.findOne(id);
     }
 
-    async remove(id: string): Promise<void> {
+    async remove(id: number): Promise<void> {
         await this.courseRepository.delete(id);
     }
 
