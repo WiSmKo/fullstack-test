@@ -14,19 +14,22 @@ export class CreateBookingPipe implements PipeTransform{
     ){}
 
     async transform(value: any){
-        Logger.log(await this.isNotAccessible(value.locationId, value.trainerId));
+        Logger.log('Validating booking data');
         if(await this.isNotAccessible(value.locationId, value.trainerId)){
-            throw new HttpException(`Validation failed: Trainer requires wheelchair access`, HttpStatus.UNPROCESSABLE_ENTITY)
+            Logger.log(`Validation failed: Trainer requires wheelchair access`, HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new HttpException(`Validation failed: Trainer requires wheelchair access`, HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
         if( this.isEndingBeforeStart(value.startDate, value.endDate)){
-            throw new HttpException(`Validation failed: The end date entered is before the start date`, HttpStatus.UNPROCESSABLE_ENTITY)
+            Logger.log(`Validation failed: The end date entered is before the start date`, HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new HttpException(`Validation failed: The end date entered is before the start date`, HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
         if(!await this.isTrainerQualified(value.trainerId, value.courseId)){
-            throw new HttpException(`Validation failed: The trainer is not qualified to teach this course`, HttpStatus.UNPROCESSABLE_ENTITY)
+            Logger.log(`Validation failed: The trainer is not qualified to teach this course`, HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new HttpException(`Validation failed: The trainer is not qualified to teach this course`, HttpStatus.UNPROCESSABLE_ENTITY);
         }
-
+        Logger.log('Validation complete')
         return value;
     }
 
