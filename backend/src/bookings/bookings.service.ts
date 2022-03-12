@@ -26,7 +26,12 @@ export class BookingsService {
     async isBookable(booking : CreateBookingsDto) : Promise<Boolean>{
         const location = await this.locationsService.findOne(booking.locationId);
         const trainer = await this.trainersService.findOne(booking.trainerId);
-
-        return ((trainer.needWheelchair && location.wheelchairAccessible) === 'True');  
+        if(!(booking.startDate < booking.endDate)){
+            return false;
+        }
+        if (trainer.needWheelchair === 'True' && location.wheelchairAccessible === 'False'){
+            return false
+        }
+        return true  
     }
 }

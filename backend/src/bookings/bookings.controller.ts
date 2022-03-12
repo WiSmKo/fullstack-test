@@ -9,7 +9,7 @@ export class BookingsController {
     constructor (private bookingsService: BookingsService){}
 
     @Post()
-    async createBooking(@Body() createBookingsDTO: CreateBookingsDto){
+    async create(@Body() createBookingsDTO: CreateBookingsDto){
         try {
             if(await this.bookingsService.isBookable(createBookingsDTO) === false){
                 throw new HttpException({
