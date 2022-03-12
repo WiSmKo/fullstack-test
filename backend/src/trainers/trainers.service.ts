@@ -14,6 +14,10 @@ export class TrainersService {
         return this.trainersRepository.findOne(id);
     }
 
+    async findAll(): Promise<Trainer[]> {
+        return this.trainersRepository.find();
+    }
+
     async findBy(course: string): Promise<Trainer[]>{
         return this.trainersRepository.find({ where: { competencies: Like(`%'${course}'%`) } });
     }
