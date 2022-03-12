@@ -1,12 +1,8 @@
-import { ArgumentMetadata, HttpException, HttpStatus, Injectable, Logger, PipeTransform } from "@nestjs/common";
-import { plainToClass } from "class-transformer";
-import { validate } from "class-validator";
+import { HttpException, HttpStatus, Injectable, Logger, PipeTransform } from "@nestjs/common";
 import { Trainer } from "src/trainers/trainers.entity";
-import { Location } from "src/locations/locations.entity";
 import { LocationsService } from 'src/locations/locations.service';
 import { TrainersService } from 'src/trainers/trainers.service';
 import { CoursesService } from "src/courses/courses.service";
-import { CreateBookingsDto } from "../dto/create-bookings.dto";
 
 @Injectable()
 export class CreateBookingPipe implements PipeTransform{
@@ -17,8 +13,7 @@ export class CreateBookingPipe implements PipeTransform{
         private coursesService: CoursesService
     ){}
 
-    async transform(value: any, metaData: ArgumentMetadata){
-        const { metatype } = metaData;
+    async transform(value: any){
         Logger.log(await this.isNotAccessible(value.locationId, value.trainerId));
         if(await this.isNotAccessible(value.locationId, value.trainerId)){
             throw new HttpException(`Validation failed: Trainer requires wheelchair access`, HttpStatus.UNPROCESSABLE_ENTITY)

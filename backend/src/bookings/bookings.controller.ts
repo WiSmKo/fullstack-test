@@ -1,5 +1,4 @@
-import { Body, Controller, HttpException, HttpStatus, Logger, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-import { Booking } from './entities/bookings.entity';
+import { Body, Controller, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { BookingsService } from './bookings.service';
 import { CreateBookingsDto } from './dto/create-bookings.dto';
 import { CreateBookingPipe } from './validation/validation.pipe';
