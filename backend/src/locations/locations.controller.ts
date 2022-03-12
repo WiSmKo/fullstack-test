@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Logger, Param, Query } from '@nestjs/common';
 import { LocationsService } from './locations.service';
 
 @Controller('locations')
@@ -9,12 +9,12 @@ export class LocationsController {
     }
 
     @Get()
-    getAllLocations() {
-        return this.locationsService.findAll()
-    }
-
-    @Get('/findBy/?')
-    async getLocationsBy(@Query('city') city: string){
-        return this.locationsService.findBy(city);
+    async getLocations(@Query() query) {
+        if(query.city != null){
+            Logger.log(`Find by ${query.city}`);
+            return (await this.locationsService.findAll()).filter(p => p.city == query.city);
+        }
+        Logger.log(`Find all`);
+        return await this.locationsService.findAll()
     }
 }
