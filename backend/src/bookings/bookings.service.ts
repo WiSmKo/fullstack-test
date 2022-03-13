@@ -14,6 +14,10 @@ export class BookingsService {
         private bookingRepository: Repository<Booking>,
     ){}
 
+    async findAll(): Promise<Booking[]> {
+        return this.bookingRepository.find();
+    }
+
     async createBooking(booking : CreateBookingsDto) : Promise<Booking> {
         return this.bookingRepository.save(booking);            
     } 
