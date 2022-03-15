@@ -17,4 +17,9 @@ export class LocationsController {
         Logger.log(`Find all`);
         return await this.locationsService.findAll()
     }
+
+    @Get('/cities')
+    async getCities(){
+        return await this.locationsService.findCities();
+    }
 }

@@ -4,8 +4,8 @@ export interface Booking {
     locationId: number;
     trainerId: number;
     studentIds: string;
-    startDate: Date;
-    endDate: Date;
-    mandatory: boolean;
+    startDate: string;
+    endDate: string;
+    mandatory: number;
     comments: string;
 }

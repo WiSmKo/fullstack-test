@@ -18,4 +18,11 @@ export class LocationsService {
         return this.locationsRepository.findOne(id);
     }
 
+    async findCities(): Promise<Location[]> {
+        return this.locationsRepository.createQueryBuilder()
+            .select("city")
+            .execute()
+    }
+
+
 }

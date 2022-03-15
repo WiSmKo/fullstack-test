@@ -54,7 +54,8 @@ export default {
 </script>
 
 <style>
- a i {
+ a {
    text-decoration: none;
+   color: black;
  }
 </style>
